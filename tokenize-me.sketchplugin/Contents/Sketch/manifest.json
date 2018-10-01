@@ -1,0 +1,25 @@
+{
+  "compatibleVersion": 3,
+  "bundleVersion": 1,
+  "icon": "icon.png",
+  "commands": [
+    {
+      "name": "tokenize-me",
+      "identifier": "juju-identifier",
+      "script": "my-command.js"
+    }
+  ],
+  "menu": {
+    "title": "tokenize-me",
+    "items": [
+      "juju-identifier"
+    ]
+  },
+  "version": "0.1.0",
+  "name": "tokenize-me",
+  "identifier": "tokenize-me",
+  "disableCocoaScriptPreprocessor": true,
+  "appcast": "https://raw.githubusercontent.com//master/.appcast.xml",
+  "author": "Juliano Silva",
+  "authorEmail": "julianodasilva@gmail.com"
+}
