@@ -86,80 +86,43 @@ var exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/my-command.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/tokenize-me.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/my-command.js":
-/*!***************************!*\
-  !*** ./src/my-command.js ***!
-  \***************************/
+/***/ "./src/tokenize-me.js":
+/*!****************************!*\
+  !*** ./src/tokenize-me.js ***!
+  \****************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//import sketch from 'sketch'
-var sketch = __webpack_require__(/*! sketch */ "sketch"); // documentation: https://developer.sketchapp.com/reference/api/
-// export default function() {
-//   sketch.UI.message("It's alive 🙌")
-// }
-// var Document = sketch.Document
-// var page = Document.SelectedPage
-//console.log(page);
-// export default function(context) {
-//   const selectedLayers = context.selection
-//   const selectedCount = selectedLayers.length
-//   const selectedName = selectedLayers.forEach(function(item){ console.log(item) })
-//
-//   if (selectedCount === 0) {
-//     context.document.showMessage('No layers are selected.')
-//   } else {
-//     context.document.showMessage(`${selectedCount} layers selected. My name is: ${selectedCount}`)
-//   }
-//
-// }
-// export default function(context) {
-//   // we use this to get hold of native sketch doc
-//   const document = sketch.fromNative(context.document)
-//   var page = document.SelectedPage
-//   const selectedLayers = context.selection
-//   const selectedCount = selectedLayers.length
-//   const layerName = selectedLayers.forEach(function(item){ console.log(item.name())  })
-//   context.document.showMessage(`${layerName}`)
-// }
-// export default function(context) {
-//   // We are passed a context variable when we're run.
-//   // We use this to get hold of the native Sketch document and wrap it.
-//   const document = sketch.fromNative(context.document)
-//
-//   // Next we want to extract the selected page of the selected (front-most) document
-//   const page = document.selectedPage
-//
-//   // Now let's create a new text layer, and a traditional value...
-//   const layer = new sketch.Text({
-//     parent: page,
-//     alignment: sketch.Text.Alignment.center,
-//     text: 'Hello World',
-//   })
-//
-//   // ...resize it so that the text just fits...
-//   layer.adjustToFit()
-//
-//   // Finally, lets center the view on our new layer
-//   // so that we can see where it is.
-//   document.centerOnLayer(layer)
-// }
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
+ // var sketch = require('sketch/dom')
+//var sketch = require('sketch');
+// documentation: https://developer.sketchapp.com/reference/api/
 
+var document = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument();
+var documents = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Document.getDocuments(); //var pages = document.pages;
+
+var Page = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Page; //console.info(documents);
 
 /* harmony default export */ __webpack_exports__["default"] = (function (context) {
-  //const doc = sketch.getSelectedDocument()
-  var selectedLayers = context.selection;
-  console.log(selectedLayers);
-  var items = selectedLayers.forEach(function (item) {
-    context.document.showMessage("".concat(item.name()));
-  });
+  var selection = context.selection;
+  var selectedLayersCount = selection.length;
+
+  if (selectedLayersCount === 0) {
+    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("nothing selected");
+  } else {
+    selection.forEach(function (element) {
+      var layer = element;
+      sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Layer ".concat(element.name(), " is selected"));
+    });
+  }
 });
 
 /***/ }),
@@ -184,4 +147,4 @@ module.exports = require("sketch");
 }
 that['onRun'] = __skpm_run.bind(this, 'default')
 
-//# sourceMappingURL=my-command.js.map
+//# sourceMappingURL=tokenize-me.js.map

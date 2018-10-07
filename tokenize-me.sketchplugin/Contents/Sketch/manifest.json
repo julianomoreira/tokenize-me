@@ -5,14 +5,14 @@
   "commands": [
     {
       "name": "tokenize-me",
-      "identifier": "juju-identifier",
-      "script": "my-command.js"
+      "identifier": "tokenize-me-identifier",
+      "script": "tokenize-me.js"
     }
   ],
   "menu": {
-    "title": "tokenize-me",
+    "title": "Tokenize Me",
     "items": [
-      "juju-identifier"
+      "tokenize-me-identifier"
     ]
   },
   "version": "0.1.0",
