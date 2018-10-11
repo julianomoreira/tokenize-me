@@ -1,5 +1,5 @@
 //import sketch from 'sketch'
-var sketch = require('sketch/dom')
+var sketch = require('sketch')
 //var sketch = require('sketch');
 // documentation: https://developer.sketchapp.com/reference/api/
 // export default function() {
@@ -8,9 +8,13 @@ var sketch = require('sketch/dom')
 
 //const getSelectedDocument = require('sketch/dom').getSelectedDocument;
 
-export default () => {
-  var getSelectedDocument = require('sketch/dom').getSelectedDocument;
-  const document = getSelectedDocument();
+export default (context) => {
+  var selection = context.selection;
+  console.log(selection);
+  selection.forEach(textLayer => {
+    var hexColor = textLayer.textColor().NSColorWithColorSpace(nil).hexValue();
+    sketch.UI.message(`The color of this layer is ${hexColor}`)
+  })
 }
 
 

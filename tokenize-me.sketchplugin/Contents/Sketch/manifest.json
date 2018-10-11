@@ -4,15 +4,21 @@
   "icon": "icon.png",
   "commands": [
     {
-      "name": "tokenize-me",
+      "name": "Tokenize me",
       "identifier": "tokenize-me-identifier",
       "script": "tokenize-me.js"
+    },
+    {
+      "name": "Get color",
+      "identifier": "getColor-identifier",
+      "script": "getColor.js"
     }
   ],
   "menu": {
-    "title": "Tokenize Me",
+    "title": "Tokenize me",
     "items": [
-      "tokenize-me-identifier"
+      "tokenize-me-identifier",
+      "getColor-identifier"
     ]
   },
   "version": "0.1.0",

@@ -86,66 +86,122 @@ var exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/tokenize-me.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/tokens.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/tokenize-me.js":
-/*!****************************!*\
-  !*** ./src/tokenize-me.js ***!
-  \****************************/
+/***/ "./src/tokens.js":
+/*!***********************!*\
+  !*** ./src/tokens.js ***!
+  \***********************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
-/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
- // var sketch = require('sketch/dom')
-//var sketch = require('sketch');
+//import sketch from 'sketch'
+var sketch = __webpack_require__(/*! sketch/dom */ "sketch/dom"); //var sketch = require('sketch');
 // documentation: https://developer.sketchapp.com/reference/api/
+// export default function() {
+//   sketch.UI.message("It's alive 🙌")
+// }
+//const getSelectedDocument = require('sketch/dom').getSelectedDocument;
 
-var document = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument();
-var documents = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Document.getDocuments(); // console.log(document);
-//var pages = document.pages;
 
-var Page = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Page; //console.info(documents);
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  var getSelectedDocument = __webpack_require__(/*! sketch/dom */ "sketch/dom").getSelectedDocument;
 
-var doc = context.document; //console.log(doc.pages());
-
-/* harmony default export */ __webpack_exports__["default"] = (function (context) {
-  var selection = context.selection;
-  var selectedLayersCount = selection.length;
-  var immutableColor = MSImmutableColor.colorWithSVGString_('#991199');
-  var color = MSColor.alloc().initWithImmutableObject_(immutableColor);
-  console.log(selection);
-  selection.forEach(function (key) {
-    console.log(key);
-    console.log(key.setTextColor(color));
-  }); // if (selectedLayersCount === 0) {
-  //   sketch.UI.message("nothing selected")
-  //
-  // } else {
-  //   selection.forEach((element) =>{
-  //     var layer = element;
-  //     for (var key in data){
-  //       console.log(key)
-  //     }
-  //     sketch.UI.message(`Layer ${layer.name()} is selected`)
-  //   })
-});
+  var document = getSelectedDocument();
+}); // var Document = sketch.Document
+// var page = Document.SelectedPage
+//console.log(page);
+// export default function(context) {
+//   const selectedLayers = context.selection
+//   const selectedCount = selectedLayers.length
+//   const selectedName = selectedLayers.forEach(function(item){ console.log(item) })
+//
+//   if (selectedCount === 0) {
+//     context.document.showMessage('No layers are selected.')
+//   } else {
+//     context.document.showMessage(`${selectedCount} layers selected. My name is: ${selectedCount}`)
+//   }
+//
+// }
+// export default function(context) {
+//   // we use this to get hold of native sketch doc
+//
+//   //const page = document.SelectedPage
+//   const selectedLayers = context.selection
+//   const selectedCount = selectedLayers.length
+//   const layerName = selectedLayers.forEach(function(item){ console.log(item.name())  })
+//   context.document.showMessage(`${layerName}`)
+// }
+// export default function(context) {
+//   // We are passed a context variable when we're run.
+//   // We use this to get hold of the native Sketch document and wrap it.
+//   const document = sketch.fromNative(context.document)
+//
+//   // Next we want to extract the selected page of the selected (front-most) document
+//   const page = document.selectedPage
+//
+//   // Now let's create a new text layer, and a traditional value...
+//   const layer = new sketch.Text({
+//     parent: page,
+//     alignment: sketch.Text.Alignment.center,
+//     text: 'Hello World',
+//   })
+//
+//   // ...resize it so that the text just fits...
+//   layer.adjustToFit()
+//
+//   // Finally, lets center the view on our new layer
+//   // so that we can see where it is.
+//   document.centerOnLayer(layer)
+// }
+// export default (context) => {
+//   //const doc = sketch.getSelectedDocument()
+//   const selectedLayers = context.selection
+//   console.log(selectedLayers)
+//   var items = selectedLayers.forEach(function(item){
+//       context.document.showMessage(`${item.name()}`)
+//   })
+// }
+// var openPanel = NSOpenPanel.openPanel()
+// openPanel.setCanChooseDirectories(false)
+// openPanel.setCanChooseFiles(true)
+// openPanel.setCanCreateDirectories(true)
+// openPanel.setDirectoryURL(NSURL.fileURLWithPath('~/Documents/'))
+//
+// openPanel.setTitle('Choose a file')
+// openPanel.setPrompt('Choose')
+// openPanel.runModal()
+//
+// var newWindow = NSWindow.window()
+// var document = sketch.getSelectedDocument()
+// var page = document.selectedPage
+//
+// var artboards = page.layers.filter(function (layer) {
+//   return layer.type === "Artboard"
+// })
+// var page = context.document.addBlankPage();
+// page.setName('Whatever you wanna call it');
+// var document = sketch.getSelectedDocument()
+//var page = document.selectedPage
+// page.layer.duplicate()
+// const selectedLayers = context.selection
+// console.log(document);
 
 /***/ }),
 
-/***/ "sketch":
-/*!*************************!*\
-  !*** external "sketch" ***!
-  \*************************/
+/***/ "sketch/dom":
+/*!*****************************!*\
+  !*** external "sketch/dom" ***!
+  \*****************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = require("sketch");
+module.exports = require("sketch/dom");
 
 /***/ })
 
@@ -158,4 +214,4 @@ module.exports = require("sketch");
 }
 that['onRun'] = __skpm_run.bind(this, 'default')
 
-//# sourceMappingURL=tokenize-me.js.map
+//# sourceMappingURL=tokens.js.map
